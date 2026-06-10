@@ -1,0 +1,226 @@
+Test 01 - 基本算術
+
+int main() {
+    int a = 10;
+    int b = 3;
+    printf("a + b = %d\n", a + b);
+    printf("a - b = %d\n", a - b);
+    printf("a * b = %d\n", a * b);
+    printf("a / b = %d\n", a / b);
+    printf("a %% b = %d\n", a % b);
+    return 0;
+}
+
+預期輸出：
+a + b = 13
+a - b = 7
+a * b = 30
+a / b = 3
+a % b = 1
+程式回傳: 0
+
+Test 02 - 變數操作
+
+int main() {
+    int x = 5;
+    int y = 10;
+    int z;
+    z = x + y;
+    x = x + 1;
+    y = y * 2;
+    printf("x = %d, y = %d, z = %d\n", x, y, z);
+    return 0;
+}
+
+預期輸出：
+x = 6, y = 20, z = 15
+程式回傳: 0
+
+Test 03 - if/else 控制
+
+int main() {
+    int score = 85;
+    if (score >= 90) {
+        printf("Grade: A\n");
+    } else if (score >= 80) {
+        printf("Grade: B\n");
+    } else if (score >= 70) {
+        printf("Grade: C\n");
+    } else {
+        printf("Grade: F\n");
+    }
+    return 0;
+}
+
+預期輸出：
+Grade: B
+程式回傳: 0
+
+Test 04 - for/while 迴圈
+
+int main() {
+    int i;
+    int sum = 0;
+    for (i = 1; i <= 5; i = i + 1) {
+        sum = sum + i;
+    }
+    printf("Sum 1 to 5: %d\n", sum);
+    
+    i = 1;
+    while (i <= 3) {
+        printf("%d ", i);
+        i = i + 1;
+    }
+    printf("\n");
+    return 0;
+}
+
+預期輸出：
+Sum 1 to 5: 15
+1 2 3 
+程式回傳: 0
+
+Test 05 - 函式定義與呼叫
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int multiply(int a, int b) {
+    int result = 0;
+    int i;
+    for (i = 0; i < a; i = i + 1) {
+        result = result + b;
+    }
+    return result;
+}
+
+int main() {
+    printf("add(5, 3) = %d\n", add(5, 3));
+    printf("multiply(4, 3) = %d\n", multiply(4, 3));
+    return 0;
+}
+
+預期輸出：
+add(5, 3) = 8
+multiply(4, 3) = 12
+程式回傳: 0
+
+Test 06 - 遞迴函式 (Fibonacci)
+
+int fib(int n) {
+    if (n <= 0) return 0;
+    if (n == 1) return 1;
+    return fib(n - 1) + fib(n - 2);
+}
+
+int main() {
+    int i;
+    printf("Fibonacci: ");
+    for (i = 0; i < 7; i = i + 1) {
+        printf("%d ", fib(i));
+    }
+    printf("\n");
+    return 0;
+}
+
+預期輸出：
+Fibonacci: 0 1 1 2 3 5 8 
+程式回傳: 0
+
+Test 07 - 陣列操作
+
+int main() {
+    int arr[5];
+    int i;
+    int sum = 0;
+    
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 40;
+    arr[4] = 50;
+    
+    for (i = 0; i < 5; i = i + 1) {
+        printf("arr[%d] = %d\n", i, arr[i]);
+        sum = sum + arr[i];
+    }
+    printf("Sum: %d\n", sum);
+    return 0;
+}
+
+預期輸出：
+arr[0] = 10
+arr[1] = 20
+arr[2] = 30
+arr[3] = 40
+arr[4] = 50
+Sum: 150
+程式回傳: 0
+
+Test 08 - 指標操作
+
+void swap(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x = 5;
+    int y = 10;
+    int *ptr;
+    
+    printf("Before: x = %d, y = %d\n", x, y);
+    swap(&x, &y);
+    printf("After: x = %d, y = %d\n", x, y);
+    
+    ptr = &x;
+    printf("*ptr = %d\n", *ptr);
+    return 0;
+}
+
+預期輸出：
+Before: x = 5, y = 10
+After: x = 10, y = 5
+*ptr = 10
+程式回傳: 0
+
+Test 09 - 字串與字符
+
+int main() {
+    char name[20];
+    strcpy(name, "Hello");
+    printf("String: %s\n", name);
+    printf("Length: %d\n", strlen(name));
+    
+    strcat(name, " World");
+    printf("After concat: %s\n", name);
+    printf("Length: %d\n", strlen(name));
+    
+    char c = 'A';
+    printf("Char: %c (ASCII %d)\n", c, c);
+    return 0;
+}
+
+預期輸出：
+String: Hello
+Length: 5
+After concat: Hello World
+Length: 11
+Char: A (ASCII 65)
+程式回傳: 0
+
+Test 10 - 錯誤檢查（除以零）
+
+int main() {
+    int x = 10;
+    int result;
+    result = x / 0;
+    return 0;
+}
+
+預期輸出：
+❌ 執行錯誤: division by zero
+
